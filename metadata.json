@@ -1,0 +1,5 @@
+{
+  "name": "Vortexly",
+  "description": "A premium, luxury-grade glassmorphism weather dashboard providing real-time data, forecasting, AQI, and astronomy.",
+  "requestFramePermissions": ["geolocation", "microphone"]
+}

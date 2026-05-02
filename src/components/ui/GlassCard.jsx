@@ -7,7 +7,7 @@ export function GlassCard({ children, className }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className={cn(
-        'glass-panel p-6 relative overflow-hidden',
+        'glass-panel relative overflow-hidden',
         className
       )}
     >

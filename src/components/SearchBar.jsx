@@ -121,7 +121,7 @@ export function SearchBar({ onLocationSelect, onGeolocation }) {
         <div className="absolute top-16 left-0 w-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border border-white/20 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
           {suggestions.length > 0 ? (
             <div className="py-2">
-              <div className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              <div className="px-4 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Results
               </div>
               {suggestions.map((loc) => (
@@ -143,7 +143,7 @@ export function SearchBar({ onLocationSelect, onGeolocation }) {
 
           {recentSearches.length > 0 && suggestions.length === 0 && (
             <div className="py-2 border-t border-gray-100 dark:border-gray-700/50">
-               <div className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+               <div className="px-4 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Recent Searches
               </div>
               {recentSearches.map((loc) => (

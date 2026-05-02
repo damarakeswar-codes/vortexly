@@ -30,7 +30,7 @@ export function AqiCard({ aqi }) {
   ];
 
   return (
-    <GlassCard className="h-full flex flex-col justify-between">
+    <GlassCard className="p-6 h-full flex flex-col justify-between">
       <div>
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-sm font-medium uppercase tracking-wider text-white/60">Air Quality Index</h3>
@@ -38,17 +38,17 @@ export function AqiCard({ aqi }) {
         
         <div className="text-white mb-6">
           <div className="flex items-center justify-between mb-2">
-            <span className={`text-[11px] uppercase font-semibold tracking-wider px-2.5 py-1 rounded-full border border-current ${info.text} bg-current/10`}>{info.label}</span>
+            <span className={`text-xs uppercase font-medium tracking-wider px-2.5 py-1 rounded-full border border-current ${info.text} bg-current/10`}>{info.label}</span>
           </div>
           <p className="text-sm opacity-80 leading-relaxed mt-2">{info.desc}</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-1 sm:gap-2 mt-4 pt-4 border-t border-white/10">
+      <div className="grid grid-cols-5 gap-1 sm:gap-2 pt-4 border-t border-white/10">
         {pollutants.map(p => (
           <div key={p.name} className="flex flex-col items-center">
-            <span className="text-[11px] sm:text-xs text-white/50 font-medium uppercase tracking-wider mb-1">{p.name}</span>
-            <span className="text-xs sm:text-sm font-medium text-white">{p.value}</span>
+            <span className="text-xs text-white/50 font-medium uppercase tracking-wider mb-1">{p.name}</span>
+            <span className="text-sm font-medium text-white">{p.value}</span>
           </div>
         ))}
       </div>

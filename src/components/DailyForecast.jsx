@@ -5,10 +5,10 @@ export function DailyForecast({ forecast, unit = 'C' }) {
   if (!forecast || !forecast.forecastday) return null;
 
   return (
-    <GlassCard className="h-full">
-      <h3 className="text-sm font-medium uppercase tracking-wider text-white/60 mb-4">7-Day Forecast</h3>
+    <GlassCard className="p-6 flex flex-col">
+      <h3 className="text-sm font-medium uppercase tracking-wider text-white/60 mb-4">{forecast.forecastday.length}-Day Forecast</h3>
       
-      <div className="space-y-4 mt-6">
+      <div className="space-y-4">
         {forecast.forecastday.map((dayData, index) => {
           const date = new Date(dayData.date);
           const maxTemp = unit === 'C' ? Math.round(dayData.day.maxtemp_c) : Math.round(dayData.day.maxtemp_f);
@@ -17,7 +17,7 @@ export function DailyForecast({ forecast, unit = 'C' }) {
           
           return (
             <div key={dayData.date} className="flex items-center justify-between text-white border-b border-white/5 last:border-0 pb-3 last:pb-0">
-              <span className="text-xs font-medium w-12 text-white/80">
+              <span className="text-sm font-medium w-12 text-white/80">
                 {shortDay}
               </span>
               
@@ -30,7 +30,7 @@ export function DailyForecast({ forecast, unit = 'C' }) {
               </div>
               
               <div className="flex items-center justify-end gap-3 flex-1">
-                 <span className="text-xs font-semibold w-6 text-right">{maxTemp}&deg;</span>
+                 <span className="text-sm font-medium w-6 text-right">{maxTemp}&deg;</span>
                  <div className="w-16 h-1 bg-white/10 rounded-full overflow-hidden">
                    <div 
                      className="h-full bg-blue-400 rounded-full"
@@ -40,7 +40,7 @@ export function DailyForecast({ forecast, unit = 'C' }) {
                      }}
                    ></div>
                  </div>
-                 <span className="text-xs font-semibold text-white/50 w-6">{minTemp}&deg;</span>
+                 <span className="text-sm font-medium text-white/50 w-6">{minTemp}&deg;</span>
               </div>
             </div>
           );

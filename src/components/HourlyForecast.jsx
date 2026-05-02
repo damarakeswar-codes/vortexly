@@ -15,10 +15,10 @@ export function HourlyForecast({ forecast, unit = 'C' }) {
     .slice(0, 24);
 
   return (
-    <GlassCard className="mt-4 sm:mt-6 w-full">
+    <div className="mt-4 sm:mt-6 w-full">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-medium uppercase tracking-wider text-white/60">Hourly Forecast</h3>
-        <span className="text-[11px] text-blue-400 font-semibold tracking-wider uppercase">Next 24 Hours</span>
+        <span className="text-xs text-blue-400 font-medium tracking-wider uppercase">Next 24 Hours</span>
       </div>
       
       <div className="flex overflow-x-auto gap-4 pb-4 scroll-smooth hide-scrollbar">
@@ -44,13 +44,13 @@ export function HourlyForecast({ forecast, unit = 'C' }) {
                 title={hour.condition.text}
               />
               
-              <div className="text-base font-semibold text-white">
+              <div className="text-base font-medium text-white">
                 {temp}&deg;
               </div>
             </div>
           );
         })}
       </div>
-    </GlassCard>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { weatherService } from '../services/weatherApi';
 
-export function useWeather(initialLocation = 'London') {
+export function useWeather(initialLocation = 'Delhi, India') {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

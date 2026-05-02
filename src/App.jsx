@@ -6,7 +6,7 @@ import { DailyForecast } from './components/DailyForecast';
 import { AqiCard } from './components/AqiCard';
 import { AstronomyCard } from './components/AstronomyCard';
 import { TemperatureChart } from './components/TemperatureChart';
-import { MapCard } from './components/MapCard';
+import { MapPicker } from './components/MapPicker';
 import { AppSkeleton } from './components/ui/AppSkeleton';
 import { useWeather } from './hooks/useWeather';
 import { CloudDrizzle, Settings2 } from 'lucide-react';
@@ -19,7 +19,7 @@ function App() {
     error, 
     setLocationQuery, 
     setLocationByCoords 
-  } = useWeather('London');
+  } = useWeather('Delhi, India');
 
   const [unit, setUnit] = useState('C');
   const [backgroundClass, setBackgroundClass] = useState('bg-weather-sunny');
@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className={cn("min-h-screen p-2 sm:p-3 md:p-6 transition-colors duration-1000 font-sans text-white flex flex-col", backgroundClass)}>
-      <div className="w-full mx-auto my-auto bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl sm:rounded-[32px] shadow-2xl overflow-hidden p-2 sm:p-4 md:p-6 flex flex-col relative">
+      <div className="w-full max-w-[1400px] mx-auto my-auto bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl sm:rounded-[32px] shadow-2xl overflow-hidden p-3 sm:p-5 md:p-8 flex flex-col relative">
         
         {/* Header Section */}
         <header className="flex flex-wrap items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 relative z-50">
@@ -69,8 +69,8 @@ function App() {
               <CloudDrizzle className="w-6 h-6 sm:w-8 sm:h-8" />
             </div>
             <div>
-              <h1 className="text-xl sm:text-3xl font-semibold tracking-tight font-display">Vortexly</h1>
-              <p className="text-[8px] sm:text-[10px] text-blue-300 font-medium uppercase tracking-[0.2em] mt-1">Weather Intel</p>
+              <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">Vortexly</h1>
+              <p className="text-[10px] sm:text-xs text-blue-300 font-medium uppercase tracking-[0.2em] mt-1">Weather Intel</p>
             </div>
           </div>
 
@@ -101,42 +101,31 @@ function App() {
         {loading ? (
           <AppSkeleton />
         ) : data ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-fade-in pb-12">
-            
+          <div className="flex flex-col gap-5 sm:gap-6 animate-fade-in pb-4">
             {/* Left Column - Main Content */}
-            <div className="lg:col-span-2 space-y-6">
               <CurrentWeather 
                 current={data.current} 
                 location={data.location} 
-                unit={unit} 
+                unit={unit}  
+                onLocationSelect={setLocationByCoords} 
               />
-              
-              <HourlyForecast 
+
+              <TemperatureChart 
                 forecast={data.forecast} 
                 unit={unit} 
               />
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <AqiCard aqi={data.current.air_quality} />
-                 <AstronomyCard astro={data.forecast.forecastday[0]?.astro} />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                <div className="grid grid-cols-1 md:grid-rows-2 gap-5 sm:gap-6">
+                  <AqiCard aqi={data.current.air_quality} />
+                  <AstronomyCard astro={data.forecast.forecastday[0]?.astro} />
+                </div>
+
+                <DailyForecast 
+                  forecast={data.forecast} 
+                  unit={unit} 
+                />
               </div>
-
-               <TemperatureChart 
-                forecast={data.forecast} 
-                unit={unit} 
-              />
-            </div>
-
-            {/* Right Column - Sidebar */}
-            <div className="flex flex-col space-y-6 lg:h-full">
-              <DailyForecast 
-                forecast={data.forecast} 
-                unit={unit} 
-              />
-              
-              <MapCard location={data.location} />
-            </div>
-
           </div>
         ) : null}
         

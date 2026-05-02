@@ -1,31 +1,27 @@
 export function AppSkeleton() {
   return (
-    <div className="animate-pulse space-y-6 max-w-6xl mx-auto pt-4 sm:pt-8">
-      {/* Search Header */}
-      <div className="flex flex-wrap items-center justify-between mb-6 sm:mb-8 gap-4 sm:gap-6">
-        <div className="h-8 sm:h-10 bg-white/20 rounded w-32 sm:w-48"></div>
-        <div className="flex gap-2 order-2 md:order-3">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full"></div>
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full"></div>
+    <div className="animate-pulse flex flex-col lg:grid lg:grid-cols-12 gap-5 sm:gap-6 pb-4 w-full">
+      {/* Left Column - Main Content */}
+      <div className="lg:col-span-8 flex flex-col gap-5 sm:gap-6">
+        {/* Current Weather */}
+        <div className="h-[340px] sm:h-[280px] md:h-[260px] bg-white/10 border border-white/5 rounded-2xl sm:rounded-3xl w-full"></div>
+        {/* Hourly Forecast */}
+        <div className="h-[160px] bg-white/10 border border-white/5 rounded-2xl sm:rounded-3xl w-full"></div>
+        {/* AQI and Astronomy */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <div className="h-[220px] bg-white/10 border border-white/5 rounded-2xl sm:rounded-3xl w-full"></div>
+          <div className="h-[220px] bg-white/10 border border-white/5 rounded-2xl sm:rounded-3xl w-full"></div>
         </div>
-        <div className="h-10 sm:h-14 bg-white/20 rounded-full w-full md:flex-1 md:max-w-2xl order-3 md:order-2 mt-2 md:mt-0"></div>
+        {/* Temperature Chart */}
+        <div className="h-[300px] bg-white/10 border border-white/5 rounded-2xl sm:rounded-3xl w-full"></div>
       </div>
-
-      {/* Main Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 space-y-6">
-          <div className="h-[300px] bg-white/10 rounded-2xl"></div>
-          <div className="h-[200px] bg-white/10 rounded-2xl"></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="h-[250px] bg-white/10 rounded-2xl"></div>
-            <div className="h-[250px] bg-white/10 rounded-2xl"></div>
-          </div>
-        </div>
-        
-        <div className="space-y-6">
-          <div className="h-[500px] bg-white/10 rounded-2xl"></div>
-          <div className="h-[250px] bg-white/10 rounded-2xl"></div>
-        </div>
+      
+      {/* Right Column - Sidebar */}
+      <div className="lg:col-span-4 flex flex-col gap-5 sm:gap-6 lg:h-full">
+        {/* Map Picker */}
+        <div className="h-[300px] sm:h-[400px] lg:h-[350px] shrink-0 bg-white/10 border border-white/5 rounded-2xl sm:rounded-3xl w-full"></div>
+        {/* Daily Forecast */}
+        <div className="h-[400px] lg:flex-1 bg-white/10 border border-white/5 rounded-2xl sm:rounded-3xl w-full"></div>
       </div>
     </div>
   );

@@ -5,8 +5,8 @@ export function AstronomyCard({ astro }) {
   if (!astro) return null;
 
   return (
-    <GlassCard className="h-full flex flex-col justify-between">
-      <h3 className="text-sm font-medium uppercase tracking-wider text-white/60 mb-4">Astronomy</h3>
+    <GlassCard className="p-6 h-full flex flex-col justify-between">
+      <h3 className="text-sm font-medium uppercase tracking-wider text-white/60">Astronomy</h3>
       
       <div className="space-y-4">
         <div className="flex items-center space-x-4">
@@ -14,8 +14,8 @@ export function AstronomyCard({ astro }) {
              <Sunrise className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[11px] text-white/50 font-medium uppercase tracking-wider">Sunrise</div>
-            <div className="text-base font-semibold text-white mt-0.5">{astro.sunrise}</div>
+            <div className="text-xs text-white/50 font-medium uppercase tracking-wider">Sunrise</div>
+            <div className="text-base font-medium text-white mt-0.5">{astro.sunrise}</div>
           </div>
         </div>
         
@@ -24,8 +24,8 @@ export function AstronomyCard({ astro }) {
              <Moon className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[11px] text-white/50 font-medium uppercase tracking-wider">Moon Phase</div>
-            <div className="text-base font-semibold text-white mt-0.5">{astro.moon_phase}</div>
+            <div className="text-xs text-white/50 font-medium uppercase tracking-wider">Moon Phase</div>
+            <div className="text-base font-medium text-white mt-0.5">{astro.moon_phase}</div>
           </div>
         </div>
       </div>
